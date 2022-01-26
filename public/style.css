@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+body{
+    font-family: 'Sriracha', cursive;
+    background-image: url('/assets/Bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.center-div{
+    padding-top: 10%;
+
+}
+
+.center-div2 {
+    padding-top: 0%;
+}
+
+.btn.btn-success{
+    padding: 0em 3em;
+}
+
+form{
+    padding: 0 3em;
+}
+
+.container {
+    max-width: 975px;
+}

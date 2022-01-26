@@ -1,0 +1,46 @@
+<%-include('header') -%>
+
+<div class="text-center center-div2 mt-5" id="login">
+    <div class="container border py-5 mt-5">
+        <h3>Welcome to Manage User's Dashboard</h3>
+        <h5><%= locals.user ? user:"User" %><br><br>
+        <a class="btn btn-outline-primary" href="/route/getusers" role="button">Get Users</a>
+        <a class="btn btn-outline-primary" href="/route/createuser" role="button">Create User</a>
+        
+        <a class="btn btn-outline-primary" href="/route/updateuser" role="button">Update User</a>
+        <a class="btn btn-outline-primary" role="button"onclick="myFunction()">Delete User</a>
+        <div id="myDIV" style = "visibility:hidden"><br> <br>
+            <form action ='/route/deleteuser/:id?_method=DELETE' method="delete" class="pt-3">
+                       <div class="form-group">
+                            <input type="text" class="form-control" placeholder="First Name" name="first_name" required> 
+                           <br>
+                       </div>
+                       
+                       <br>
+                       <button type="submit" class="btn btn-success rounded-pl">Submit</button>
+                   </form>
+           </div>
+           <script> 
+           
+           function myFunction()
+           {
+             var x = document.getElementById("myDIV")
+             if (x.style.visibility === "hidden") {
+               x.style.visibility = "visible";;
+             } else {
+               x.style.visibility = "hidden";
+             }
+             
+             
+           }
+           
+           </script>
+
+
+        <br><br>
+        <a href="/route/logout">Logout</a>
+        </h5>
+    </div>
+</div>
+
+<%-include('footer') -%>
