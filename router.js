@@ -2,8 +2,11 @@ const Joi = require("joi");
 const { application } = require("express");
 const express = require("express");
 const router = express.Router();
+
 const fs = require("fs");
 const importdata = require("./users.json")
+
+
 
 const creds ={
     email:"admin@gmail.com",
@@ -20,7 +23,8 @@ router.post('/login',(req,res) =>{
         res.redirect('/route/dashboard')
 
     }else{
-        res.send("Authorization Failed")
+        
+        res.render('base',{title:"Manage User System",authfail:"Authorization Failed!!!"})
     }
 
 });
@@ -29,9 +33,9 @@ router.post('/login',(req,res) =>{
 //dashboard Route
 router.get('/dashboard',(req,res) =>{
     if(req.session.user){
-        res.render('dashboard',{user:req.session.user})
+        res.render('dashboard',{user:req.session.user,message1:"New data"})
     }else{
-        res.send("UnAuthorize User")
+        res.render('base',{title:"Manage User System",logout:"Session Expired Please ReLogin"})
     }
 })
 
@@ -42,7 +46,7 @@ router.get('/logout',(req,res) => {
             console.log(err);
             res.send("Error")
         }else{
-            res.render('base',{title:"Manage User System",logout:"Logout Successfully !!!"})
+            res.render('base',{title:"Manage User System",logout:"Logout Successfully!!!"})
         }
     })
 })
@@ -54,7 +58,7 @@ router.get('/getusers',(req,res) =>{
         res.status(200)
         
     }else{
-        res.send("UnAuthorize User");
+        res.render('base',{title:"Manage User System",logout:"Session Expired Please ReLogin"})
     }
 
 })
@@ -64,7 +68,7 @@ router.get('/createuser',(req,res) =>{
     if(req.session.user){
         res.render('createuser',{user:req.session.user})
     }else{
-        res.send("UnAuthorize User")
+        res.render('base',{title:"Manage User System",logout:"Session Expired Please ReLogin"})
     }
 })
 
@@ -91,7 +95,7 @@ router.post('/createuser',(req,res) =>{
             department: req.body.department,
         };
         importdata.push(data);
-        fs.writeFile("users.json", JSON.stringify(importdata), err => {
+        fs.writeFile("users.json", JSON.stringify(importdata,null, 2), err => {
      
             // Checking for errors
             if (err) throw err; 
@@ -100,8 +104,18 @@ router.post('/createuser',(req,res) =>{
             
         });
         
-        res.send("New User Created");
+        res.render('dashboard',{title:"Manage User System",createuser:"User Created Successfully"})
 
 })
+
+
+router.get('/updateuser',(req,res) =>{
+    if(req.session.user){
+        res.render('updateuser',{user:req.session.user})
+    }else{
+        res.render('base',{title:"Manage User System",logout:"Session Expired Please ReLogin"})
+    }
+})
+
 
 module.exports = router;

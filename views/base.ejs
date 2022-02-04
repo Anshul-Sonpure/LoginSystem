@@ -7,8 +7,13 @@
             <span>Username: admin@gmail.com Password: admin123</span>
             <% if(locals.logout){%>
             <div class="alter alert-success text-center">
-                <%=logout%>
+            <%=logout%>
             </div>
+            <%}%>
+            <% if(locals.authfail){%>
+                <div class="alter alert-success text-center">
+                    <%=authfail%>
+                </div>
             <%}%>
         </div>
         <form action ='/route/login' method="POST" class="pt-3"> 

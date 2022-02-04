@@ -1,0 +1,12 @@
+<%-include('header') -%>
+
+<form method="POST" action="/updateuser" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="_method" value="PUT">
+    <button type="submit">PUT</button>
+  </form>
+  <form method="POST" action="/deleteuser" enctype="application/x-www-form-urlencoded">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">DELETE</button>
+  </form>
+  
+  <%-include('footer') -%>

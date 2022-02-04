@@ -6,7 +6,6 @@
         <h5><%= locals.user ? user:"User" %><br><br>
         <a class="btn btn-outline-primary" href="/route/getusers" role="button">Get Users</a>
         <a class="btn btn-outline-primary" href="/route/createuser" role="button">Create User</a>
-        
         <a class="btn btn-outline-primary" href="/route/updateuser" role="button">Update User</a>
         <a class="btn btn-outline-primary" role="button"onclick="myFunction()">Delete User</a>
         <div id="myDIV" style = "visibility:hidden"><br> <br>
@@ -20,6 +19,11 @@
                        <button type="submit" class="btn btn-success rounded-pl">Submit</button>
                    </form>
            </div>
+           <% if(locals.createuser){%>
+            <div class="alter alert-success text-center">
+                <%=createuser%>
+            </div>
+            <%}%>
            <script> 
            
            function myFunction()
