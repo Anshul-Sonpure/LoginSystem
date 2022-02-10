@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="users.json"></script>
+<script type="text/javascript" src="javascrip.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+    th{ 
+        color:#fff;
+            }
+</style>
+</head>
+<body>
+	<table class="table table-striped" id="user_table">
+		<tr  class="bg-info">
+			<th>id</th>
+			<th>first_name</th>
+			<th>last_name</th>
+			<th>email</th>
+			<th>gender</th>
+			<th>department</th>
+		</tr>
+	
+		<tbody id="myTable">
+			
+		</tbody>
+	</table>
+	
+	<script>
+		$(document).ready (function(){
+		   $.getJSON("./users.json", function(data){
+				var user_data = '';
+				$.each(data, function(key, value){
+					user_data += '<tr>';
+					user_data += '<td>'+value.id+'</td>';
+					user_data += '<td>'+value.first_name+'</td>';
+					user_data += '<td>'+value.last_name+'</td>';
+					user_data += '<td>'+value.email+'</td>';
+					user_data += '<td>'+value.gender+'</td>';
+					user_data += '<td>'+value.department+'</td>';
+					user_data += '</tr>';
+				});
+				$('#user_table').append (user_data);
+			});
+		});
+	</script>
+</body>
+</html>

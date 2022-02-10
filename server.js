@@ -7,11 +7,14 @@ const {v4:uuidv4} = require("uuid");
 const router = require('./router');
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
+const morgan = require('morgan')
+
 const port = process.env.PORT||3000;
 
 app.use(bodyparser.json())
 app.use(bodyparser.urlencoded({extended:true}))
 
+app.use(morgan('tiny')) 
 
 app.use(methodOverride(function (req, res) {
   if (req.body && typeof req.body === 'object' && '_method' in req.body) {
@@ -45,7 +48,13 @@ app.get('/', (req,res) => {
 app.put('/updateuser',(req, res) => {
 	console.log(":: PUT /log");
   res.redirect('/');
-    })
+})
+    
+app.delete('/updateuser',(req, res) => {
+  console.log(":: Delete /log");
+    res.redirect('/route/dashboard');
+})
+
 
 app.listen(port, ()=>{
     console.log(`Server Started at http://127.0.0.1:${port}`)

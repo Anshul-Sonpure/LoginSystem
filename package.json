@@ -16,8 +16,10 @@
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
+    "html-tablify": "^2.0.2",
     "joi": "^13.1.0",
     "method-override": "^3.0.0",
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
     "uuid": "^8.3.2"
   }

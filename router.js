@@ -1,10 +1,10 @@
 const Joi = require("joi");
-const { application } = require("express");
+const { application, response } = require("express");
 const express = require("express");
 const router = express.Router();
-
+const html_tablify = require('html-tablify');
 const fs = require("fs");
-const importdata = require("./users.json")
+const importdata = require("./users.json");
 
 
 
@@ -13,6 +13,12 @@ const creds ={
     password:"admin123"
 }
 
+
+var options = {
+    data: importdata,border: 5,
+    css: 'table {border: 5px solid red}'
+};
+var html_data = html_tablify.tablify(options);
 
 
 //Login User
@@ -54,9 +60,8 @@ router.get('/logout',(req,res) => {
 //Get all User Route
 router.get('/getusers',(req,res) =>{
  if(req.session.user){
-        res.send(importdata);
-        res.status(200)
-        
+   res.send(html_data);
+    
     }else{
         res.render('base',{title:"Manage User System",logout:"Session Expired Please ReLogin"})
     }
