@@ -27,3 +27,11 @@ form{
 .container {
     max-width: 975px;
 }
+
+
+
+.update-user,img,svg{
+    vertical-align: middle;
+    padding-left: 185px;
+    padding-top: 62px;
+}
