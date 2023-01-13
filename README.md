@@ -1,12 +1,23 @@
-# Login System using Node.js
+# _Login System using Node.js_
+
 Hey Friends,\
 This project is for those who want to learn how to implement backend(Node.js) routes with the frontend(EJS based template).
 This project is simple Login based application and once the user is logged in, the user can access the data of all users or can create a new user. 
 
-## Usage
+## Features
+Node.js is a cross-platform, open-source server environment that can run on Windows, Linux, Unix, macOS, and more. Node.js is a back-end JavaScript runtime environment, runs on the V8 JavaScript Engine, and executes JavaScript code outside a web browser.
+
+## Tech 
+- node.js
+- render - to host the web app
+- git hub - so that you can clone and do some more experiments
+- EJS - html base template 
+
+## Installation
 To access application UI based head towards:\
-```https://nodejs-loginapp.herokuapp.com```\
-I have hosted this application on the cloud-based platform Heroku.
+https://login-system-app.onrender.com
+
+I have hosted this application using render(cloud based platform).
 For your local testing and access.
 First clone the repo using
 ```
