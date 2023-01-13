@@ -57,5 +57,5 @@ app.delete('/updateuser',(req, res) => {
 
 
 app.listen(port, ()=>{
-    console.log(`Server Started at ${port}`)
+    console.log(`Server Started at Localhost:${port}`)
 })
